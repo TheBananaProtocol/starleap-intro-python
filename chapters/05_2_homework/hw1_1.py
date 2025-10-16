@@ -23,10 +23,18 @@ print("********** Homework 1 Exercise 2 **********")
 # Do your work for Excercise 2 here
 
 
-name = input('whatis your name? ')
+name = input('what is your name? ')
 print('Hi, ' + name + '!')
-if input == ('james'):
-    print("locking on your pasition")
+if name == ('james'):
+    print("james deteceded locking on your postion and sending in a nuke ")
+if name == ('willam'):
+    print('unlimited wite monster for the king')
+if name ==(tj)
+
+
+age = input('how old are you?')
+print('')
+
 
 
 
