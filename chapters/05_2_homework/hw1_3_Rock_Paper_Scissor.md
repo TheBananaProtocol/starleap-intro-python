@@ -1,5 +1,6 @@
-# Chapter 5 - Rock Paper Scissors
+# Chapter 5 - Rock Paper Sci
 
+ 
 ## Exercise – Rock, Paper, Scissors
 
 In this exercise, you are going to practice using conditionals (`if`, `elif`, `else`). You will write a small program that will determine the result of a rock, paper, scissors game, given Player 1 and Player 2’s choices. Your program will print out the result. Here are the rules of the game:
