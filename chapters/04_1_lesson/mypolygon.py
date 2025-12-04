@@ -8,7 +8,7 @@ import turtle
 fu = turtle.Turtle()
 fu.shape('turtle')
 fu.color('blue', 'green')
-fu.speed(1)
+fu.speed(5)
 
 
 
@@ -31,7 +31,7 @@ fu.fd(600)
 gu = turtle.Turtle()
 gu.shape('turtle')
 gu.color('blue')
-gu.speed(1)
+gu.speed(7)
 
 
 
