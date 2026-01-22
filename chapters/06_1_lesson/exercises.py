@@ -82748,12 +82748,17 @@ print("hi")
 
 
 
+c=50
 
 
 
+def blastoff(c):
+    while c>0:
+        print(c)
+        c=c-1
+        print("blastoff")
+        
 
 
-
-
-
+blastoff(c)
 
