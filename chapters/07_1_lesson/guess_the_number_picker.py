@@ -4,13 +4,22 @@
 # The program should also tell the user how many guesses it took to guess the number.
 import random
 MIN_NUMBER = 1
-MAX_NUMBER = 100
+MAX_NUMBER = 1000
 
 def get_valid_guess():
-    guess = int(input("Enter your guess"))
-    return guess
+    while True:
+        guess_text=input("enter your guess: ")
+        try:
+            guess = int(guess_text)
+            if guess > MAX_NUMBER or guess < MIN_NUMBER:
+                raise ValueError()
+            return guess
+        except:
+            print("that's not a guess 🤨")
     # TODO: Implement this function
-    pass
+    #make sure it's a number
+    # make sure it's between 1-100
+
 
 def play_picker():
     number = random.randint(MIN_NUMBER,MAX_NUMBER)
@@ -18,26 +27,28 @@ def play_picker():
     while True:
         guess = get_valid_guess()
         if guess == number:
-            print("congates you don't get eaten")
+            print("congates you don't get eaten😔")
             break
         elif guess > number:
-            print("um WHAT WaS THAT GUESS THATS TOO HIGH")
+            print("um WHAT WaS THAT GUESS THATS TOO HIGH👎")
         else:
-            print("BOOOOOOOO!!! thats too low")
+            print("BOOOOOOOO!!! thats too low🥦🥦")
         
     pass
 
 def main():
     print('=' * 60)
     print()
-    print("Welcome to the Number Guessing Game!")
+    print("Welcome to the Number Guessing Game!🤗")
     print()
     while True:
         guess_count = play_picker()
-        answer = input("Do you want to play again? (y/n) ").lower()
+        answer = input("Do you want to play again?🪓 (y/n) ").lower()
         if answer == "n":
-            print("i'm whaching you")
+            print("i'm whaching you😁")
             break
 
 if __name__ == "__main__":
     main()
+
+
