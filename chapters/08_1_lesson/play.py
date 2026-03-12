@@ -1,7 +1,13 @@
 
 fruit = '🤣🤣🤔☺🐛'
-
+banana = 'banana'
+prefixes = 'TKLSNOGJ'
+suffix = 'ello world'
 index =4
+word = 'william'
+
+
+
 while index < len(fruit):
     letter=fruit[index]
     print(letter)
@@ -9,11 +15,14 @@ while index < len(fruit):
 
 
 
-prefixes = 'TKLMNOPQ'
-suffix = 'elker'
+new_word = word.upper()
+
+print(new_word)
+
 
 for letter in prefixes:
     print (letter + suffix)
+
 
 
 def find(word, letter):
@@ -24,13 +33,21 @@ def find(word, letter):
         index = index + 1
     return -1
 
-print(find)
 
-word = banana
+count = 0
+for letter in word:
+    if letter == 'a':
+        count = count + 1
+print(count)
+
+
 
 if word < 'banana':
-    print('Your word, ' + word + ', comes before banana.')
+    print(' hey, ' + word + ', arhhhhhhgggg.')
 elif word > 'banana':
-    print('Your word, ' + word + ', comes after banana.')
+    print('hey, ' + word + ', no white monters for you.😈')
 else:
     print('All right, bananas.')
+
+
+
