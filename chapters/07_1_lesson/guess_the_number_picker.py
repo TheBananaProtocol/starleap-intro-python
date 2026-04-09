@@ -16,9 +16,7 @@ def get_valid_guess():
             return guess
         except:
             print("that's not a guess 🤨")
-    # TODO: Implement this function
-    #make sure it's a number
-    # make sure it's between 1-100
+    
 
 
 def play_picker():

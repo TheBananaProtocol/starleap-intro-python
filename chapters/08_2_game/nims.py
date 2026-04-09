@@ -1,11 +1,13 @@
 
-
+import random
 
 
 min_stones = 1
 max_stones = 5
-pile = 10
+max_pile = 100
+min_pile = 1
 player = 1
+
 
 
 def valid_answer():
@@ -18,60 +20,33 @@ def valid_answer():
             return guess
         except:
             print("that's not a guess 🤨")
+            print("your trun is now skipped")
+            return 0
 
 
 
 
-
-
-def play_nims(pile, max_stones):
+def play_nims():
     global player
-    print (f"there are {pile} stones" )
-    while pile > 0:
+    number = random.randint(min_pile,max_pile)
+    while number > 0:
         answer = valid_answer()
-        pile -= answer
+        number -= answer
         if player == 1:
             player = 2
         else:
             player = 1
-    if pile > 0 and player == 1:
+    if number > 0 and player == 1:
         print("congrates player 1 you just beat a 4 year old girl in a too too👧")
     else:
-        print("yo playa 2 you stole the cheder from playa 1")
+        print("hay player one you just lost😝😝")
 
 
-
-    
-
-
-    
-
-
-
-
-
-
-#pile with 100 stones
-#ask players if they want to play
-#ask player one 
-#subtrack from pile
-#ask player two
-#subtrack from pile
-#
 
 answer = input('do you want to play nims')
-
 if answer == 'yes':
-    print ("get ready to play NIMS")
-    play_nims(pile, max_stones)
+    print ("are you playing with a friend")
+    play_nims()
 
 
 
-#while [pile is not empty]:
-#   while [player 1's answer is not valid]:
-#       [ask player 1]
-#       [execute player 1's move]
-# 
-#   while [player 2's answer is not vali #           [ask player 2]
-#            [execute player 2's move]
-#
