@@ -30,10 +30,12 @@ print(value)
 print (5/2)
 print(5//2)
 
-class_min = 90
+class_min = 2000000000
 hours =class_min // 60 
 minutes = class_min - (hours *60)
 
 print(f"class {hours} hours and {minutes} min long")
+
+
 
 
