@@ -2,13 +2,30 @@ import turtle
 import time
 import random
 
-X_BOUND = 500
-Y_BOUND = 500
+X_BOUND = 600
+Y_BOUND = 600
 
 STEP_SIZE = 5
 TURN_SIZE = 5
 
-NumberOfTurtles = 50
+NumberOfTurtles = 0
+
+#add turtle imputs
+double_turtle = "r"
+add_turtle = "t"
+add_sqaure = "q"
+add_arrow = "o"
+add_circle = "c"
+add_triangle = "i"
+add_blank = "b"
+add_clasic = "l"
+
+
+#move imputs
+turtles_forward = "w"
+turtle_turn_right = "d"
+turtle_turn_left = "a"
+
 
 
 screen = turtle.Screen()
@@ -19,6 +36,8 @@ screen.listen()
 sd_turtles: list[turtle.Turtle] = []
 turtles: list[turtle.Turtle] = []
 
+
+#DOUBLE THE TUTLES
 def double_turtles():
     global turtles
     ttm = 2*(len(turtles)) or 1
@@ -26,6 +45,7 @@ def double_turtles():
         t = turtle.Turtle()
         t.shape('turtle')
         t.pensize('5')
+        t.penup()
         turtle.colormode(255)
         t.color((random.randint(1, 255), random.randint(1, 255), random.randint(1, 255)))
         x = random.randint(-X_BOUND, X_BOUND)
@@ -34,36 +54,41 @@ def double_turtles():
         turtles.append(t)
         t.position()
         print(len(turtles))
-screen.onkeypress(double_turtles, "r")
+screen.onkeypress(double_turtles, double_turtle)
 
 
 
-
+#TURTLE
 def add_turtles():
     global turtles
     for i in range(1):
         t = turtle.Turtle()
         t.shape('turtle')
-        t.pensize('5')
+        t.pensize(random.randint(1, 15))
+        t.left(random.randint(1, 360))
+        t.speed(random.randint(0, 10))
         turtle.colormode(255)
+        t.penup()
         t.color((random.randint(1, 255), random.randint(1, 255), random.randint(1, 255)))
         x = random.randint(-X_BOUND, X_BOUND)
         y = random.randint(-Y_BOUND, Y_BOUND)
         t.goto(x, y)
         turtles.append(t)
         t.position()
+        t.pendown()
         print(len(turtles))
-screen.onkeypress(add_turtles, "t")
+screen.onkeypress(add_turtles, add_turtle)
 
 
 
-
-def add_sqaure():
+#SQAURE TURTLE
+def add_sqaures():
     global turtles
-    for i in range(1):
+    for i in range(50):
         t = turtle.Turtle()
         t.shape('square')
-        t.pensize('15')
+        t.pensize('5')
+        t.penup()
         turtle.colormode(255)
         t.color((random.randint(1, 255), random.randint(1, 255), random.randint(1, 255)))
         x = random.randint(-X_BOUND, X_BOUND)
@@ -72,13 +97,15 @@ def add_sqaure():
         turtles.append(t)
         t.position()
         print(len(turtles))
-screen.onkeypress(add_sqaure, "s")
+screen.onkeypress(add_sqaures, add_sqaure)
 
 
-def add_arrow():
+#RAAOW TURTLE
+def add_arrows():
     global turtles
     for i in range(1):
         t = turtle.Turtle()
+        t.penup()
         turtle.colormode(255)
         t.color((random.randint(1, 255), random.randint(1, 255), random.randint(1, 255)))
         x = random.randint(-X_BOUND, X_BOUND)
@@ -87,15 +114,16 @@ def add_arrow():
         turtles.append(t)
         t.position()
         print(len(turtles))
-screen.onkeypress(add_arrow, "a")
+screen.onkeypress(add_arrows, add_arrow)
 
-
-def add_circle():
+#circle
+def add_circles():
     global turtles
     for i in range(1):
         t = turtle.Turtle()
         t.shape('circle')
-        t.pensize('25')
+        t.pensize('5')
+        t.penup()
         turtle.colormode(255)
         t.color((random.randint(1, 255), random.randint(1, 255), random.randint(1, 255)))
         x = random.randint(-X_BOUND, X_BOUND)
@@ -104,7 +132,26 @@ def add_circle():
         turtles.append(t)
         t.position()
         print(len(turtles))
-screen.onkeypress(add_circle, "c")
+screen.onkeypress(add_circles, add_circle)
+
+
+#triangle turtle
+def add_triangles():
+    global turtles
+    for i in range(1):
+        t = turtle.Turtle()
+        t.shape('triangle')
+        t.pensize('5')
+        t.penup()
+        turtle.colormode(255)
+        t.color((random.randint(1, 255), random.randint(1, 255), random.randint(1, 255)))
+        x = random.randint(-X_BOUND, X_BOUND)
+        y = random.randint(-Y_BOUND, Y_BOUND)
+        t.goto(x, y)
+        turtles.append(t)
+        t.position()
+        print(len(turtles))
+screen.onkeypress(add_triangles, add_triangle)
 
 
 
@@ -113,41 +160,81 @@ screen.onkeypress(add_circle, "c")
 
 
 
+#blank turtle
+def add_blanks():
+    global turtles
+    for i in range(1):
+        t = turtle.Turtle()
+        t.shape('blank')
+        t.pensize('5')
+        t.penup()
+        turtle.colormode(255)
+        t.color((random.randint(1, 255), random.randint(1, 255), random.randint(1, 255)))
+        x = random.randint(-X_BOUND, X_BOUND)
+        y = random.randint(-Y_BOUND, Y_BOUND)
+        t.goto(x, y)
+        turtles.append(t)
+        t.position()
+        print(len(turtles))
+screen.onkeypress(add_blanks, add_blank)
+
+#classic turtle
+def add_clasics():
+    global turtles
+    for i in range(1):
+        t = turtle.Turtle()
+        t.shape('classic')
+        t.pensize('5')
+        t.penup()
+        turtle.colormode(255)
+        t.color((random.randint(1, 255), random.randint(1, 255), random.randint(1, 255)))
+        x = random.randint(-X_BOUND, X_BOUND)
+        y = random.randint(-Y_BOUND, Y_BOUND)
+        t.goto(x, y)
+        turtles.append(t)
+        t.position()
+        print(len(turtles))
+screen.onkeypress(add_clasics, add_clasic)
 
 
 
 
 
+#turtle move forward
+def turtles_forwards_march():
+    for t in turtles:
+        t.speed(random.randint(0, 10))
+        t.forward(random.randint(1, 60))
+screen.onkeypress(turtles_forwards_march, turtles_forward)
+
+
+def turtle_turn_rights():
+    for t in turtles:
+        t.right(5)
+screen.onkeypress(turtle_turn_rights,turtle_turn_right)
+
+
+def turtle_turn_lefts():
+    for t in turtles:
+        t.speed(0)
+        t.left(5)
+screen.onkeypress(turtle_turn_lefts,turtle_turn_left)
 
 
 
 
-
-
-
-
-
-
-
-
-def draw_square(t):
-    for i in range(4):
-        t.forward(80)
-        t.left(90)
-
-
-while True:
-    for t in sd_turtles:
-        draw_square(t)
-        (old_x, old_y) = t.possition()
-        possilble_moves = [t.forward, t.back, t.right, t.left]
-        random_value = random.randint(0, 100)
-        random.choice(possilble_moves)(random_value)
-        (new_x,new_y) = t.possition()
-        if (new_x > X_BOUND or new_x < -X_BOUND or new_y > Y_BOUND or new_y < -Y_BOUND):
-            t.goto(old_x, old_y)
-    time.sleep(0.5)
-    screen.update()
+# while True:
+#     for t in sd_turtles:
+#         draw_square(t)
+#         (old_x, old_y) = t.possition()
+#         possilble_moves = [t.forward, t.back, t.right, t.left]
+#         random_value = random.randint(0, 100)
+#         random.choice(possilble_moves)(random_value)
+#         (new_x,new_y) = t.possition()
+#         if (new_x > X_BOUND or new_x < -X_BOUND or new_y > Y_BOUND or new_y < -Y_BOUND):
+#             t.goto(old_x, old_y)
+#     time.sleep(0.5)
+#     screen.update()
 
 
 
