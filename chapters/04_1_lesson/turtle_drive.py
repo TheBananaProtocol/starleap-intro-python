@@ -2,8 +2,8 @@ import turtle
 import time
 import random
 
-X_BOUND = 600
-Y_BOUND = 600
+X_BOUND =150
+Y_BOUND = 150
 
 STEP_SIZE = 5
 TURN_SIZE = 5
@@ -19,6 +19,8 @@ add_circle = "c"
 add_triangle = "i"
 add_blank = "b"
 add_clasic = "l"
+draw_bound = "/"
+
 
 
 #move imputs
@@ -46,6 +48,7 @@ def double_turtles():
         t.shape('turtle')
         t.pensize('5')
         t.penup()
+        t.left(random.randint(1, 360))
         turtle.colormode(255)
         t.color((random.randint(1, 255), random.randint(1, 255), random.randint(1, 255)))
         x = random.randint(-X_BOUND, X_BOUND)
@@ -75,8 +78,7 @@ def add_turtles():
         t.goto(x, y)
         turtles.append(t)
         t.position()
-        t.pendown()
-        print(len(turtles))
+    print(len(turtles))
 screen.onkeypress(add_turtles, add_turtle)
 
 
@@ -196,15 +198,37 @@ def add_clasics():
         print(len(turtles))
 screen.onkeypress(add_clasics, add_clasic)
 
+def draw_bounds():
+    t = turtle.Turtle()
+    t.pensize('5')
+    turtle.colormode(255)
+    t.color((random.randint(1, 255), random.randint(1, 255), random.randint(1, 255)))
+    t.teleport(X_BOUND,Y_BOUND)
+    t.goto(X_BOUND,-Y_BOUND)
+    t.goto(-X_BOUND,-Y_BOUND)
+    t.goto(-X_BOUND,Y_BOUND)
+    t.goto(X_BOUND,Y_BOUND)
+    t.shape('blank')
+screen.onkeypress(draw_bounds, draw_bound)
 
 
 
+def check_turtle_location(t):
+    if t.xcor() >= X_BOUND:
+        return False
+
+    elif t.ycor() >= Y_BOUND:
+        return False
+    
 
 #turtle move forward
 def turtles_forwards_march():
     for t in turtles:
-        t.speed(random.randint(0, 10))
-        t.forward(random.randint(1, 60))
+        t.speed(random.randint(1, 60))
+        t.forward(5)
+
+
+        
 screen.onkeypress(turtles_forwards_march, turtles_forward)
 
 
@@ -223,18 +247,7 @@ screen.onkeypress(turtle_turn_lefts,turtle_turn_left)
 
 
 
-# while True:
-#     for t in sd_turtles:
-#         draw_square(t)
-#         (old_x, old_y) = t.possition()
-#         possilble_moves = [t.forward, t.back, t.right, t.left]
-#         random_value = random.randint(0, 100)
-#         random.choice(possilble_moves)(random_value)
-#         (new_x,new_y) = t.possition()
-#         if (new_x > X_BOUND or new_x < -X_BOUND or new_y > Y_BOUND or new_y < -Y_BOUND):
-#             t.goto(old_x, old_y)
-#     time.sleep(0.5)
-#     screen.update()
+
 
 
 
@@ -242,9 +255,6 @@ def draw_square(t):
     for i in range(4):
         t.forward(80)
         t.left(90)
-
-
-
 
 
 def fwd():
@@ -262,13 +272,22 @@ def rt():
         t.rt(TURN_SIZE)
 screen.onkeypress(rt, "Right")
 
-def remove_turtle():
-    if len(turtles) == 0:
-        return
-    t = turtles.pop(0)
-    t.clear()
-    t.hideturtle()
-screen.onkeypress(remove_turtle, "-")
+
+
+
+
+
+
+#def remove_turtle():
+#    if len(turtles) == 0:
+#    return
+#    t = turtles.pop(0)
+#    t.clear()
+#    t.hideturtle()
+#screen.onkeypress(remove_turtle, "-")
+
+
+
 
 
 while True:
